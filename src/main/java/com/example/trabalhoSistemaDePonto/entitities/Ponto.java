@@ -36,13 +36,15 @@ public class Ponto implements Serializable {
 	}
 
 	public Ponto(Long id, Instant dataHoraEntrada, Instant dataHoraSaida, String justificativa, Date horasJustificadas,
-			Boolean aceite) {
+			Boolean aceite, Funcionario funcionario) {
+		super();
 		this.id = id;
 		this.dataHoraEntrada = dataHoraEntrada;
 		this.dataHoraSaida = dataHoraSaida;
 		this.justificativa = justificativa;
 		this.horasJustificadas = horasJustificadas;
 		this.aceite = aceite;
+		this.funcionario = funcionario;
 	}
 
 	public Long getId() {
