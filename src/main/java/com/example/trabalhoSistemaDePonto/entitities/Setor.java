@@ -53,6 +53,10 @@ public class Setor implements Serializable {
 		this.nome = nome;
 	}
 
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
