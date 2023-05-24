@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.trabalhoSistemaDePonto.entitities.Ponto;
-import com.example.trabalhoSistemaDePonto.services.PontoService;
+import com.example.trabalhoSistemaDePonto.entitities.Setor;
+import com.example.trabalhoSistemaDePonto.services.SetorService;
 
 @RestController
-@RequestMapping(value = "pontos")
-public class PontoResource {
+@RequestMapping(value = "setores")
+public class SetorResource {
 
 	@Autowired
-	private PontoService service;
+	private SetorService service;
 
 	@GetMapping
-	public ResponseEntity<List<Ponto>> findAll() {
-		List<Ponto> pontos = service.findAll();
+	public ResponseEntity<List<Setor>> findAll() {
+		List<Setor> pontos = service.findAll();
 		return ResponseEntity.ok().body(pontos);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Ponto> findById(@PathVariable Long id) {
-		Ponto obj = service.findById(id);
+	public ResponseEntity<Setor> findById(@PathVariable Long id) {
+		Setor obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 

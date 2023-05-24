@@ -11,6 +11,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -30,6 +32,10 @@ public class Funcionario implements Serializable {
 	private String senha;
 	private Boolean adm;
 
+	@ManyToOne
+	@JoinColumn(name = "setor")
+	private Setor setor;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "funcionario")
 	private List<Ponto> pontos = new ArrayList<>();
@@ -37,7 +43,8 @@ public class Funcionario implements Serializable {
 	public Funcionario() {
 	}
 
-	public Funcionario(Long id, String nome, String cpf, String email, String telefone, String senha, Boolean adm) {
+	public Funcionario(Long id, String nome, String cpf, String email, String telefone, String senha, Boolean adm,
+			Setor setor) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -45,6 +52,7 @@ public class Funcionario implements Serializable {
 		this.telefone = telefone;
 		this.senha = senha;
 		this.adm = adm;
+		this.setor = setor;
 	}
 
 	public Long getId() {
@@ -101,6 +109,14 @@ public class Funcionario implements Serializable {
 
 	public void setAdm(Boolean adm) {
 		this.adm = adm;
+	}
+
+	public Setor getSetor() {
+		return setor;
+	}
+
+	public void setSetor(Setor setor) {
+		this.setor = setor;
 	}
 
 	public List<Ponto> getPontos() {
