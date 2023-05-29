@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.trabalhoSistemaDePonto.entitities.Funcionario;
 import com.example.trabalhoSistemaDePonto.repositories.FuncionarioRepository;
+import com.example.trabalhoSistemaDePonto.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class FuncionarioService {
@@ -21,7 +22,7 @@ public class FuncionarioService {
 
 	public Funcionario findById(Long id) {
 		Optional<Funcionario> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
 	public Funcionario insert(Funcionario obj) {
