@@ -32,4 +32,19 @@ public class FuncionarioService {
 		repository.deleteById(id);
 	}
 
+	public Funcionario update(Long id, Funcionario obj) {
+		Funcionario entity = repository.getReferenceById(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(Funcionario entity, Funcionario obj) {
+		entity.setNome(obj.getNome());
+		entity.setCpf(obj.getCpf());
+		entity.setEmail(obj.getEmail());
+		entity.setTelefone(obj.getTelefone());
+		entity.setAdm(obj.getAdm());
+		entity.setSetor(obj.getSetor());
+	}
+
 }
