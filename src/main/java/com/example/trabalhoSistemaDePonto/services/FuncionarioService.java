@@ -24,4 +24,8 @@ public class FuncionarioService {
 		return obj.get();
 	}
 
+	public Funcionario insert(Funcionario obj) {
+		return repository.save(obj);
+	}
+
 }
