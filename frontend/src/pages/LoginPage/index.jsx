@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/auth";
 
 import './styles.css';
 import Footer from "../../footer";
+import Navbar from "../../navbar";
 
 const LoginPage = () => {
     const { authenticated, login } = useContext(AuthContext);
@@ -20,36 +21,41 @@ const LoginPage = () => {
     }
 
     return ( 
-        <div id="login">
-            <h1 className="title">Login</h1>
-            <p>{String(authenticated)}</p>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="field">
-                    <label htmlFor="CPF">CPF</label>
-                    <input 
-                    type="CPF" 
-                    name="CPF" 
-                    id="CPF" 
-                    value={CPF} 
-                    onChange={(e) => setCPF(e.target.value)}
-                    />
+        <body>
+            <Navbar/>
+            <div class="flex-box login-container">
+                <div class="content-box">
+                    <h2>Login</h2>
+                    <form onsubmit={handleSubmit}>
+                        <div class="input-group">
+                            <label htmlFor="CPF"> CPF</label>
+                            <input 
+                            type="CPF" 
+                            id="CPF" 
+                            name="CPF"
+                            value={CPF}
+                            placeholder="Digite seu CPF (apenas números)"
+                            onChange={(e) => setCPF(e.target.value)}/>
+                        </div>
+                        <div class="input-group">
+                            <label htmlFor="password"> Senha</label>
+                            <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            value={senha}
+                            placeholder="Digite sua senha"
+                            onchange={(e) => setSenha(e.target.value)}/>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="entrar-button">Entrar</button>
+                            <button type="submit" class="recuperar-button">Recuperar senha</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="field">
-                    <label htmlFor="password">Senha</label>
-                    <input 
-                    type="password" 
-                    name="password" 
-                    id="password"
-                    value={senha}
-                    onChange={(e) => setSenha(e.target.value)}
-                    />
-                </div>
-                <div className="actions">
-                    <button type="submit">Entrar</button>
-                </div>
-            </form>
+            </div>
             <Footer/>
-        </div>
+        </body>
     )
 }
 

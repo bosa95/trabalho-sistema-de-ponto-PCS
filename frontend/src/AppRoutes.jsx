@@ -9,7 +9,6 @@ import {
 
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
-import Navbar from "./navbar";
 
 import { AuthProvider, AuthContext } from "./contexts/auth";
 
@@ -30,7 +29,6 @@ const AppRoutes = () => {
 
     return (
         <Router>
-            <Navbar/>
             <AuthProvider>
             <Routes>
                 <Route exact path="/login" element={<LoginPage/>}/>

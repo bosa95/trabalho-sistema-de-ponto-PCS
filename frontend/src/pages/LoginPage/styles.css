@@ -1,32 +1,101 @@
-#login {
+/* Reset de estilos para remoção de margens e preenchimentos padrão */
+body, h2, form, label, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Open Sans, sans-serif;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 0 2rem;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Define a altura da flex-box como 100% da altura da janela (viewport) */
+    margin: 0; /* Remova qualquer margem no corpo */
+    overflow: hidden;
 }
 
-#login .form {
-    background-color: #f1f1f1; /* tirar */
-    width: 100%;
-    max-width: 480px;
-    padding: 0.5rem;
+.flex-box {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-grow: 1; /* Cresce para ocupar o espaço vertical restante */
 }
 
-#login .field {
-    padding-bottom: 0.5rem;
-}
-
-#login .field label {
-    display: block;
-}
-
-#login .field input {
-    width: 100%;
-}
-
-#login .actions {
+.login-container {
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 5px;
     text-align: center;
-    margin-top: 0.5rem;
+    max-width: 480px;
+    display: grid;
+    place-items: center; /* Centraliza horizontal e verticalmente */
+}
+
+.content-box {
+    text-align: center;
+    flex-grow: 1; /* Faz a caixa de conteúdo crescer para ocupar o espaço vertical disponível */
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os elementos horizontalmente */
+}
+
+.input-group {
+    display: flex;
+    align-items: center; /* Alinha os elementos horizontalmente */
+    margin-bottom: 10px;
+}
+
+label {
+    text-align: left;
+    margin-right: 10px;
+    width: 100px; /* Largura fixa para o rótulo */
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Ocupa todo o espaço disponível */
+}
+
+button {
+    color: #fff;
+    border: none;
+    padding: 2px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recuperar-button {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.entrar-button {
+    background-color: #5cb85c;
+    border-color: #398439;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Espaço igual entre os botões */
+    margin-top: 10px; /* Espaço entre os grupos de entrada e botões */
+}
+
+.entrar-button,
+.recuperar-button {
+    flex: 1; /* Expande para preencher o espaço disponível */
+    margin-left: 30px; /* Espaço entre os botões */
+    width: calc(100% - 2.5px); /* Defina a largura desejada para ambos os botões com um pequeno espaço */
 }
